@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_gravity="center"
+    android:background="@drawable/background_rectangle"
+    android:gravity="center">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerInParent="true" />
+
+    <com.demon.baseui.view.CircleImageView
+        android:id="@+id/riv_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/base_loading" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="加载中，请稍后..."
+        android:textColor="#252525" />
+</RelativeLayout>

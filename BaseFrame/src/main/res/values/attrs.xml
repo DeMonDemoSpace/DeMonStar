@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoadingLayout">
+        <attr name="isFirstVisible" format="boolean" />
+        <attr name="initView" format="enum" >
+            <enum name="Success" value="0" />
+            <enum name="Empty" value="1" />
+            <enum name="Error" value="2" />
+            <enum name="No_Network" value="3" />
+            <enum name="Loading" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>

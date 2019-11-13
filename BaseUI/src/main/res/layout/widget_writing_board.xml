@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/sp_text_size"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:entries="@array/base_text_size" />
+
+        <Spinner
+            android:id="@+id/sp_color"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:entries="@array/base_color" />
+
+        <TextView
+            android:id="@+id/tv_undo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/option_write_menu"
+            android:drawableLeft="@drawable/base_back"
+            android:gravity="center"
+            android:text="@string/base_undo"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_restore"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/option_write_menu"
+            android:drawableRight="@drawable/base_go"
+            android:gravity="center"
+            android:text="@string/base_store"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_clear"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/option_write_menu"
+            android:drawableLeft="@drawable/base_clear"
+            android:gravity="center"
+            android:text="@string/base_clear"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@drawable/option_write_menu"
+            android:drawableLeft="@drawable/base_save"
+            android:gravity="center"
+            android:text="@string/base_save"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <com.demon.baseui.view.PaintView
+        android:id="@+id/paintView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_white" />
+</LinearLayout>

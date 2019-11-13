@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#039be5</color>
+    <color name="colorPrimaryDark">#039be5</color>
+    <color name="colorAccent">#039be5</color>
+
+    <color name="base_transparent">#00000000</color>
+    <color name="base_translucent">#40000000</color>
+    <color name="base_transparent_white">#E6ffffff</color>
+    <color name="base_black">#000000</color>
+    <color name="base_red">#ff2d69</color>
+    <color name="base_background">#f3f3f3</color>
+    <color name="base_gray">#757575</color>
+    <color name="base_light_gray">#B8B8B8</color>
+    <color name="base_white">#FFFFFF</color>
+    <color name="base_line">#d7d7d7</color>
+    <color name="base_line_light">#ffeeeeee</color>
+    <color name="base_blue">#039be5</color>
+    <color name="base_deep_blue">#388696</color>
+    <color name="base_text">#575757</color>
+    <color name="base_text_light">#D7D7D7</color>
+    <color name="base_text_dark">#333333</color>
+    <color name="base_title_color">#32343E</color>
+    <color name="base_text_color">#999999</color>
+    <color name="gray_btn_bg_color">#757575</color>
+    <color name="gray_btn_bg_pressed_color">#a1a1a1</color>
+    <color name="blue_btn_bg_color">#039be5</color>
+    <color name="blue_btn_bg_pressed_color">#4ba0c7</color>
+    <color name="red_btn_bg_color">#DD6B55</color>
+    <color name="red_btn_bg_pressed_color">#CD5B55</color>
+    <color name="error_stroke_color">#F27474</color>
+    <color name="success_stroke_color">#A5DC86</color>
+    <color name="trans_success_stroke_color">#33A5DC86</color>
+    <color name="warning_stroke_color">#F8BB86</color>
+</resources>

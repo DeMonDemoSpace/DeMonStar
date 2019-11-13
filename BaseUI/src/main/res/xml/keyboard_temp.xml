@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="20%p"
+    android:keyHeight="45dp">
+
+    <Row>
+        <Key
+            android:keyLabel="33."
+            android:keyOutputText="33." />
+        <Key
+            android:keyLabel="34."
+            android:keyOutputText="34." />
+        <Key
+            android:codes="49"
+            android:keyLabel="1" />
+        <Key
+            android:codes="50"
+            android:keyLabel="2" />
+        <Key
+            android:codes="-3"
+            android:keyIcon="@drawable/base_keyboard_hide" />
+    </Row>
+
+    <Row>
+        <Key
+            android:keyLabel="35."
+            android:keyOutputText="35." />
+        <Key
+            android:keyLabel="36."
+            android:keyOutputText="36." />
+        <Key
+            android:codes="51"
+            android:keyLabel="3" />
+        <Key
+            android:codes="52"
+            android:keyLabel="4" />
+        <Key
+            android:codes="-5"
+            android:isRepeatable="true"
+            android:keyIcon="@drawable/base_backspace" />
+    </Row>
+    <Row>
+        <Key
+            android:keyLabel="37."
+            android:keyOutputText="37." />
+        <Key
+            android:keyLabel="38."
+            android:keyOutputText="38." />
+        <Key
+            android:codes="53"
+            android:keyLabel="5" />
+        <Key
+            android:codes="54"
+            android:keyLabel="6" />
+        <Key
+            android:codes="-9"
+            android:keyLabel="全选" />
+    </Row>
+    <Row>
+        <Key
+            android:keyLabel="39."
+            android:keyOutputText="39." />
+        <Key
+            android:keyLabel="40."
+            android:keyOutputText="40." />
+        <Key
+            android:codes="55"
+            android:keyLabel="7" />
+        <Key
+            android:codes="56"
+            android:keyLabel="8" />
+        <Key
+            android:codes="-7"
+            android:keyLabel="上一项" />
+    </Row>
+    <Row>
+        <Key
+            android:keyLabel="41."
+            android:keyOutputText="41." />
+        <Key
+            android:keyLabel="42."
+            android:keyOutputText="42." />
+        <Key
+            android:codes="57"
+            android:keyLabel="9" />
+        <Key
+            android:codes="48"
+            android:keyLabel="0" />
+        <Key
+            android:codes="-8"
+            android:keyLabel="下一项" />
+    </Row>
+</Keyboard>
+
+

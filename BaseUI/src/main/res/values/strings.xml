@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BaseUI</string>
+
+    <string name="base_loading">Loading…</string>
+    <string name="base_ok">OK</string>
+    <string name="base_fix">确定</string>
+    <string name="base_cancel">Cancel</string>
+    <string name="base_positive">确认</string>
+    <string name="base_know">知道了</string>
+    <string name="base_negative">取消</string>
+    <string name="base_good">好的</string>
+    <string name="base_quit">算了</string>
+    <string name="base_setting">去设置</string>
+    <string name="base_success">成功</string>
+    <string name="base_tips">温馨提示</string>
+    <string name="base_error">错误</string>
+    <string name="base_warning">警告</string>
+    <string name="base_permission">权限申请</string>
+    <string name="base_ps">温馨提示</string>
+    <string name="base_text_size">字体大小</string>
+    <string name="base_color">颜色</string>
+    <string name="base_undo">撤销</string>
+    <string name="base_store">恢复</string>
+    <string name="base_clear">清空</string>
+    <string name="base_save">保存</string>
+</resources>

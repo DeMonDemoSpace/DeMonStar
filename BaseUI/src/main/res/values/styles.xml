@@ -1,0 +1,77 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--自定义对话框样式-->
+    <style name="TransparentDialog">
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 遮罩层 -->
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+
+    <!--View 分割线样式-->
+    <style name="ViewDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#e0e0e0</item>
+    </style>
+
+    <style name="ViewDividerMargin" parent="ViewDivider">
+        <item name="android:layout_marginLeft">18dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+    <style name="dialog_button" parent="android:Widget.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/base_white</item>
+    </style>
+
+    <style name="BaseTextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">18dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingEnd" tools:ignore="NewApi">15dp</item>
+        <item name="android:drawablePadding">15dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/option_background</item>
+    </style>
+
+
+    <style name="MenuTextView"  parent="BaseTextViewStyle">
+        <item name="android:drawableRight">@drawable/base_to_right</item>
+    </style>
+
+    <!-- popupwindow -->
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+
+    <style name="CornerLabelView"/>
+
+    <style name="CornerLabelView.Default">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="clvPaddingTop">10dp</item>
+        <item name="clvPaddingCenter">3dp</item>
+        <item name="clvPaddingBottom">3dp</item>
+    </style>
+</resources>

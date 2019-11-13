@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BaseUtil</string>
+
+    <item type="id" name="statusbarutil_fake_status_bar_view" />
+    <item type="id" name="statusbarutil_translucent_view" />
+</resources>
