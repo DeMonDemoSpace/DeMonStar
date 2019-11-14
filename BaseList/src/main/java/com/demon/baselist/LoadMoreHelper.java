@@ -17,7 +17,6 @@ import java.util.List;
 public class LoadMoreHelper {
     private int dataSize = 15;
     private int pageNum = 0;
-    private int pageNumX = 0;
     private BaseQuickAdapter adapter;
     private LoadMoreView loadMoreView;
     private RecyclerView recyclerView;
@@ -51,11 +50,10 @@ public class LoadMoreHelper {
     }
 
     public int getPageNum() {
-        return pageNumX;
+        return pageNum;
     }
 
     public void setPageNum(int pageNum) {
-        this.pageNumX = pageNum;
         this.pageNum = pageNum;
     }
 
@@ -66,7 +64,7 @@ public class LoadMoreHelper {
     /**
      * 设置recyclerView上拉加载更多的view
      */
-    public void onLoadMoreView(final LoadMoreListener listener) {
+    public void onLoadMoreListener(final LoadMoreListener listener) {
         //this.adapter.setEnableLoadMore(true);
         if (loadMoreView == null) {
             loadMoreView = new PullLoadMoreView();
@@ -75,9 +73,9 @@ public class LoadMoreHelper {
         this.adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-                pageNumX++;
+                pageNum++;
                 if (listener != null) {
-                    listener.loadMoreListener(pageNumX);
+                    listener.loadMoreListener(pageNum);
                 }
             }
         }, recyclerView);
@@ -91,23 +89,27 @@ public class LoadMoreHelper {
      * @param dataList
      * @return 返回分页数
      */
-    public void handleLoadDataView(List dataList) {
-        this.adapter.addData(dataList);
-        if (dataList.size() < dataSize) {
-            this.adapter.loadMoreEnd(); //加载完成，无法继续上拉加载更多
+    public void addDataList(List dataList) {
+        if (pageNum == 0) {
+            setNewDataList(dataList);
         } else {
-            this.adapter.loadMoreComplete();
+            this.adapter.addData(dataList);
+            if (dataList.size() < dataSize) {
+                this.adapter.loadMoreEnd(); //加载完成，无法继续上拉加载更多
+            } else {
+                this.adapter.loadMoreComplete();
+            }
         }
     }
 
     public void handlerLoadFailed() {
-        pageNumX--;
+        this.pageNum--;
         //this.adapter.enableLoadMoreEndClick(true);
         this.adapter.loadMoreFail();
     }
 
-    public void setNewData(List dataList) {
-        this.pageNumX = pageNum;
+    public void setNewDataList(List dataList) {
+        this.pageNum = 0;
         this.adapter.setNewData(dataList);
         this.adapter.disableLoadMoreIfNotFullPage();
     }
@@ -116,6 +118,5 @@ public class LoadMoreHelper {
     public void setUpLoadFalse() {
         this.adapter.setEnableLoadMore(false);
     }
-
 
 }
