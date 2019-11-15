@@ -223,4 +223,17 @@
     <declare-styleable name="TouchImageView">
         <attr name="zoom_enabled" format="boolean" />
     </declare-styleable>
+
+
+    <declare-styleable name="MutilRadioGroup">
+        <attr name="mrg_gravity" format="enum"><!--对齐方式 !-->
+            <enum name="right" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="center" value="2"/>
+        </attr>
+        <attr name="mrg_horizontal_Space" format="dimension"/>
+        <attr name="mrg_vertical_Space" format="dimension"/>
+        <attr name="mrg_isFull" format="boolean"/>
+    </declare-styleable>
+
 </resources>

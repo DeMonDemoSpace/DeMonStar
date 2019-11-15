@@ -48,4 +48,18 @@ public class MathPopWindow extends PopupWindow {
             this.dismiss();
         }
     }
+
+    /**
+     * 显示popupWindow
+     *
+     * @param parent
+     */
+    public void showViewDown(View parent) {
+        if (!this.isShowing()) {
+            // 以下拉方式显示popupwindow
+            this.showAsDropDown(parent, 0, 0);
+        } else {
+            this.dismiss();
+        }
+    }
 }
