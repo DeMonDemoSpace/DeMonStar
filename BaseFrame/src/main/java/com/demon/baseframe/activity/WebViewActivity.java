@@ -8,9 +8,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -26,7 +28,7 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
     private static final String TAG = "WebViewActivity";
     private static final String WEBVIEW_NAME = "WebViewName";
     private static final String WEBVIEW_URL = "WebViewUrl";
-
+    private static final String WEBVIEW_NAV = "WebViewNav";
     private WebView mWbWebView;
     private ProgressBar mProgress;
     private ImageView mIvBack;
@@ -46,9 +48,14 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
      * @return WebViewActivity的Intent
      */
     public static Intent newIntent(Context context, String name, String url) {
+        return newIntent(context, name, url, false);
+    }
+
+    public static Intent newIntent(Context context, String name, String url, boolean isShowNav) {
         Intent intent = new Intent(context, WebViewActivity.class);
         intent.putExtra(WEBVIEW_NAME, name);
         intent.putExtra(WEBVIEW_URL, url);
+        intent.putExtra(WEBVIEW_NAV, isShowNav);
         return intent;
     }
 
@@ -67,6 +74,9 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
     public void initCreate() {
         mWebViewName = getIntent().getStringExtra(WEBVIEW_NAME);
         mWebViewUrl = getIntent().getStringExtra(WEBVIEW_URL);
+        boolean isShowBar = getIntent().getBooleanExtra(WEBVIEW_NAV, false);
+        LinearLayout webviewNavigation = findViewById(R.id.ll_webview_navigation);
+        webviewNavigation.setVisibility(isShowBar ? View.VISIBLE : View.GONE);
         mWbWebView = findViewById(R.id.wb_webview);
         mProgress = findViewById(R.id.progress_webview);
         mIvForward = findViewById(R.id.iv_webview_forward);
@@ -85,6 +95,14 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
     protected void initView() {
         Log.i(TAG, "访问的网址: " + mWebViewUrl);
         mWbWebView.loadUrl(mWebViewUrl);
+        WebSettings webSettings = mWbWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setAllowFileAccessFromFileURLs(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(true);
+        webSettings.setSupportZoom(true);//缩放开关，设置此属性，仅支持双击缩放，不支持触摸缩放
+        webSettings.setBuiltInZoomControls(true);  //设置是否可缩放，会出现缩放工具（若为true则上面的设值也默认为true）
+        webSettings.setDisplayZoomControls(true);  //隐藏缩放工具
         mWbWebView.getSettings().setJavaScriptEnabled(true);
         // WebView出现net::ERR_UNKNOWN_URL_SCHEME错误：http://www.jianshu.com/p/119823e5cfb5
         mWbWebView.setWebViewClient(new WebViewClient() {
@@ -99,7 +117,7 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
                             || url.startsWith("dianping://")//大众点评
                             || url.startsWith("baiduboxapp://")//大众点评
                         //其他自定义的scheme
-                            ) {
+                    ) {
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                         startActivity(intent);
                         return true;

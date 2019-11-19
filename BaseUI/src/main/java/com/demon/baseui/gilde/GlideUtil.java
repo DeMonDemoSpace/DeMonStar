@@ -64,12 +64,12 @@ public class GlideUtil {
      * 根据图片uri将图片显示在img控件上
      */
     public static void setImage(Context context, Uri uri, ImageView img) {
-        RequestOptions options = new RequestOptions().placeholder(R.drawable.base_no_image).error(R.drawable.base_no_image);
+        RequestOptions options = new RequestOptions().error(R.drawable.base_no_image);
         Glide.with(context).load(uri).apply(options).into(img);
     }
 
     public static void setImage(Context context, Uri uri, ImageView img, int defaultImg) {
-        RequestOptions options = new RequestOptions().placeholder(defaultImg).error(defaultImg);
+        RequestOptions options = new RequestOptions().placeholder(defaultImg).error(R.drawable.base_no_image);
         Glide.with(context).load(uri).apply(options).into(img);
     }
 

@@ -64,6 +64,10 @@ public class ImageUtil {
         return null;
     }
 
+    public static String compressAndSave(Context context, String srcPath) {
+        return saveBitmapImage(context, compressImage(srcPath), "compress");
+    }
+
     /**
      * 图片路径转base64
      *
@@ -116,8 +120,8 @@ public class ImageUtil {
      * @param srcPath
      * @return
      */
-    public static String compressAndBase64(String srcPath, float hh, float ww) {
-        return bitmapToBase64(compressImage(srcPath, hh, ww));
+    public static String compressAndBase64(String srcPath) {
+        return bitmapToBase64(compressImage(srcPath));
     }
 
 
@@ -127,7 +131,7 @@ public class ImageUtil {
      * @param srcPath
      * @return
      */
-    public static Bitmap compressImage(String srcPath, float hh, float ww) {
+    public static Bitmap compressImage(String srcPath) {
         BitmapFactory.Options newOpts = new BitmapFactory.Options();
         //开始读入图片，此时把options.inJustDecodeBounds 设回true了
         newOpts.inJustDecodeBounds = true;
@@ -135,8 +139,8 @@ public class ImageUtil {
         newOpts.inJustDecodeBounds = false;
         int w = newOpts.outWidth;
         int h = newOpts.outHeight;
-        //float hh = 600f;//这里设置高度为600f
-        //float ww = 600f;//这里设置宽度为480f
+        float hh = 600f;//这里设置高度为600f
+        float ww = 600f;//这里设置宽度为600f
         //缩放比。由于是固定比例缩放，只用高或者宽其中一个数据进行计算即可
         int be = 1;//be=1表示不缩放
         if (w > h && w > ww) {//如果宽度大的话根据宽度固定大小缩放
@@ -152,17 +156,13 @@ public class ImageUtil {
         return compressImageQuality(bitmap);//压缩好比例大小后再进行质量压缩
     }
 
-    public static Bitmap compressImageQuality(String srcPath) {
-        return compressImageQuality(BitmapFactory.decodeFile(srcPath));
-    }
-
     /**
      * 压缩图片
      *
      * @param image
      * @return
      */
-    public static Bitmap compressImageQuality(Bitmap image) {
+    private static Bitmap compressImageQuality(Bitmap image) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
         int options = 80;

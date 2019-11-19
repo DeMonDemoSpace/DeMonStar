@@ -66,11 +66,7 @@ public class UploadImageView extends ConstraintLayout {
         addImgView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (url.startsWith("http")) {
-                    mContext.startActivity(PreviewImgActivity.newIntent(mContext, 0, url));
-                } else {
-                    mContext.startActivity(PreviewImgActivity.newIntent(mContext, 1, url));
-                }
+                mContext.startActivity(PreviewImgActivity.newIntent(mContext, url));
             }
         });
         typedArray.recycle();

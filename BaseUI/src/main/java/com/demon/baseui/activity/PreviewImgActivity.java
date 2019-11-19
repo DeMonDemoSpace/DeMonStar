@@ -3,12 +3,10 @@ package com.demon.baseui.activity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
@@ -17,24 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.demon.baseui.R;
 import com.demon.baseui.gilde.GlideDownLoad;
-import com.demon.baseui.gilde.GlideUtil;
 import com.demon.baseui.view.TouchImageView;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class PreviewImgActivity extends AppCompatActivity {
     private TouchImageView zoomImageView;
-    public static final int URL = 0; //链接
-    public static final int FILE = 1;//文件
-    public static final int RES = 2;
-    private static final String KEY = "key";
     private static final String VALUE = "value";
     private ProgressBar progressBar;
     private File imgFile;
-    private ExecutorService singleExecutor = null;//单线程列队执行
 
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -54,9 +44,8 @@ public class PreviewImgActivity extends AppCompatActivity {
         }
     };
 
-    public static Intent newIntent(Context context, int type, Object value) {
+    public static Intent newIntent(Context context, Object value) {
         Intent intent = new Intent(context, PreviewImgActivity.class);
-        intent.putExtra(KEY, type);
         intent.putExtra(VALUE, (Serializable) value);
         return intent;
     }
@@ -69,9 +58,17 @@ public class PreviewImgActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN); //隐藏状态栏
         zoomImageView = findViewById(R.id.zoomImageView);
         progressBar = findViewById(R.id.progress);
-        int type = getIntent().getIntExtra(KEY, -1);
+        int type = 0;
+        if (getIntent().getExtras().get(VALUE) instanceof String) {
+            String value = getIntent().getStringExtra(VALUE);
+            if (!value.startsWith("http")) {
+                type = 1;
+            }
+        } else {
+            type = 2;
+        }
         switch (type) {
-            case URL:
+            case 0:
                 String value1 = getIntent().getStringExtra(VALUE);
                 progressBar.setVisibility(View.VISIBLE);
                 GlideDownLoad glideDownLoad = new GlideDownLoad(PreviewImgActivity.this, value1, new GlideDownLoad.Listener() {
@@ -87,16 +84,20 @@ public class PreviewImgActivity extends AppCompatActivity {
                     }
                 });
                 //启动图片下载线程
-                runOnQueue(glideDownLoad);
+                new Thread(glideDownLoad).start();
                 break;
-            case FILE:
+            case 1:
                 String value2 = getIntent().getStringExtra(VALUE);
-                GlideUtil.setImage(this, Uri.parse(value2), zoomImageView);
+                try {
+                    zoomImageView.setImageURI(Uri.parse(value2));
+                } catch (Exception e) {
+                    zoomImageView.setImageResource(R.drawable.base_no_image);
+                }
                 break;
-            case RES:
+            case 2:
                 int v = getIntent().getIntExtra(VALUE, 0);
                 if (v != 0) {
-                    zoomImageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), v));
+                    zoomImageView.setImageResource(v);
                 }
                 break;
         }
@@ -109,24 +110,10 @@ public class PreviewImgActivity extends AppCompatActivity {
         });
     }
 
-
-    /**
-     * 执行单线程列队执行
-     */
-    public void runOnQueue(Runnable runnable) {
-        if (singleExecutor == null) {
-            singleExecutor = Executors.newSingleThreadExecutor();
-        }
-        singleExecutor.submit(runnable);
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN); //显示状态栏
-        if (singleExecutor != null) {
-            singleExecutor.shutdownNow();
-        }
         handler.removeCallbacksAndMessages(null);
     }
 }

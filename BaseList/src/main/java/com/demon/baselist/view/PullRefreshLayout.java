@@ -20,7 +20,7 @@ public class PullRefreshLayout extends SwipeRefreshLayout {
 
     public PullRefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setColorSchemeResources(R.color.colorAccent, R.color.colorPrimaryDark, R.color.colorPrimary);
+        setColorSchemeResources(R.color.colorPrimaryDark, R.color.colorAccent, R.color.colorPrimary);
     }
 
     public void refreshComplete() {

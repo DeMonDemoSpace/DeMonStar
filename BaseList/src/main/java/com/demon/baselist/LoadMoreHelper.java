@@ -119,4 +119,5 @@ public class LoadMoreHelper {
         this.adapter.setEnableLoadMore(false);
     }
 
+
 }

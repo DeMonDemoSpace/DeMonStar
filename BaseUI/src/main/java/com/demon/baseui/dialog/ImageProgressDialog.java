@@ -22,7 +22,7 @@ public class ImageProgressDialog extends ProgressDialog {
     private CircleImageView riv_image;
     private ProgressBar progressBar;
     private String text;
-    private int img = R.drawable.base_loading;
+    private int img = R.drawable.base_google;
 
     public ImageProgressDialog(Context context) {
         super(context, R.style.TransparentDialog);
