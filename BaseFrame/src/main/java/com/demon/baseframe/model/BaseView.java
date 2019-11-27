@@ -10,9 +10,9 @@ import com.demon.baseutil.ToastUtil;
  */
 public interface BaseView {
 
-    void setLoadingLayout(@LoadingLayout.Flavour int status, String msg);
-
     void setLoadingLayout(String msg);
+
+    void setLoadingLayout(@LoadingLayout.Flavour int status, String msg);
 
     void setLoadingLayout(@LoadingLayout.Flavour int status);
 
