@@ -15,6 +15,9 @@ import com.demon.baseframe.util.TUtil;
 import com.demon.baseframe.widget.LoadingLayout;
 import com.demon.baseutil.ToastUtil;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * @author DeMon
  * @date 2017/12/18
@@ -31,12 +34,13 @@ public abstract class BaseFragment<T extends BasePresenterInfc> extends Fragment
     private boolean isVisible;
     private boolean isResume;
     protected View containerView;
-
+    Unbinder unbinder;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
         isFristLoad = true;
         containerView = inflater.inflate(bindLayout(), container, false);
+        unbinder = ButterKnife.bind(this, containerView);
         initPresenter();
         return containerView;
     }
@@ -110,6 +114,7 @@ public abstract class BaseFragment<T extends BasePresenterInfc> extends Fragment
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        unbinder.unbind();
         if (mPresenter != null) {
             mPresenter.onDestroy();
         }

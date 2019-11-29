@@ -6,13 +6,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import com.demon.baseframe.R;
 import com.demon.baseframe.model.BasePresenterInfc;
 
 import java.lang.reflect.Method;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import butterknife.ButterKnife;
 
 /**
  * @author DeMon
@@ -38,6 +39,7 @@ public abstract class BaseBarActivity<T extends BasePresenterInfc> extends BaseA
         mToolbar = findViewById(R.id.toolbar);  //#34393A
         LayoutInflater.from(this).inflate(bindLayout(), viewContent);
         setToolbar(this, initTitle() + "");
+        ButterKnife.bind(this);
     }
 
 

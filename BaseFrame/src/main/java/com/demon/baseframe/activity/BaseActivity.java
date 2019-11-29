@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.demon.baseframe.R;
 import com.demon.baseframe.app.BaseApp;
 import com.demon.baseframe.model.BaseModel;
 import com.demon.baseframe.model.BasePresenterInfc;
@@ -17,6 +15,9 @@ import com.demon.baseframe.widget.LoadingLayout;
 import com.demon.baseutil.ToastUtil;
 import com.demon.baseutil.status.StatusBarUtil;
 import com.demon.baseutil.status.StatusFontUtil;
+
+import androidx.appcompat.app.AppCompatActivity;
+import butterknife.ButterKnife;
 
 
 /**
@@ -35,6 +36,7 @@ public abstract class BaseActivity<T extends BasePresenterInfc> extends AppCompa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(BaseApp.SCREEN_MODE);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         BaseModel.mContext = this;
         mContext = this;
         initParam(getIntent());
@@ -52,6 +54,7 @@ public abstract class BaseActivity<T extends BasePresenterInfc> extends AppCompa
      */
     protected void initLayout() {
         setContentView(bindLayout());
+        ButterKnife.bind(this);
     }
 
     protected void setStatusBar() {

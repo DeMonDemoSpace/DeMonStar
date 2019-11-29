@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp40"
+    android:background="@color/base_light_gray"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp16"
+        android:drawableLeft="@drawable/base_grouping"
+        android:drawablePadding="@dimen/dp15"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp18" />
+</LinearLayout>

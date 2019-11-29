@@ -9,5 +9,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <View style="@style/ViewDividerMargin" />
+    <View style="@style/Line_solid.Margin" />
 </LinearLayout>

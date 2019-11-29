@@ -14,5 +14,5 @@
 
     <View
         android:id="@+id/line"
-        style="@style/ViewDivider" />
+        style="@style/Line_solid" />
 </LinearLayout>

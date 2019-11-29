@@ -19,15 +19,26 @@
     </style>
 
     <!--View 分割线样式-->
-    <style name="ViewDivider">
+    <style name="Line_dashed">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@drawable/line_dashed</item>
+    </style>
+
+    <style name="Line_solid">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
         <item name="android:background">#e0e0e0</item>
     </style>
 
-    <style name="ViewDividerMargin" parent="ViewDivider">
-        <item name="android:layout_marginLeft">18dp</item>
-        <item name="android:layout_marginRight">5dp</item>
+    <style name="Line_solid.Margin" parent="Line_solid">
+        <item name="android:layout_marginLeft">@dimen/dp18</item>
+        <item name="android:layout_marginRight">@dimen/dp5</item>
+    </style>
+
+    <style name="Line_dashed.Margin" parent="Line_dashed">
+        <item name="android:layout_marginLeft">@dimen/dp18</item>
+        <item name="android:layout_marginRight">@dimen/dp5</item>
     </style>
 
     <style name="dialog_button" parent="android:Widget.Button">
@@ -53,7 +64,7 @@
     </style>
 
 
-    <style name="MenuTextView"  parent="BaseTextViewStyle">
+    <style name="MenuTextView" parent="BaseTextViewStyle">
         <item name="android:drawableRight">@drawable/base_to_right</item>
     </style>
 
@@ -64,7 +75,7 @@
     </style>
 
 
-    <style name="CornerLabelView"/>
+    <style name="CornerLabelView" />
 
     <style name="CornerLabelView.Default">
         <item name="android:layout_width">wrap_content</item>

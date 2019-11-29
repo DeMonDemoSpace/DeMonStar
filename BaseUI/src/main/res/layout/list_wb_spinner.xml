@@ -13,5 +13,5 @@
         android:textColor="@color/base_text"
         android:textSize="14sp" />
 
-    <View style="@style/ViewDivider" />
+    <View style="@style/Line_solid" />
 </LinearLayout>

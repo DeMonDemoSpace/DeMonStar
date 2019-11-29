@@ -102,6 +102,29 @@ public class AppUtil {
         return isWork;
     }
 
+    /**
+     * 获得当前进程的名字
+     *
+     * @param context 上下文
+     * @return 当前进程的名字
+     */
+    public static String getCurProcessName(Context context) {
+        int pid = android.os.Process.myPid();
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (activityManager == null) {
+            return null;
+        }
+        for (ActivityManager.RunningAppProcessInfo appProcess : activityManager
+                .getRunningAppProcesses()) {
+
+            if (appProcess.pid == pid) {
+
+                return appProcess.processName;
+            }
+        }
+        return null;
+    }
+
 
     /**
      * 检查所需权限中缺少的权限
