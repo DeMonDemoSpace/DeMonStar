@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 
-import com.demon.baseframe.app.BaseApp;
+import com.demon.baseframe.app.AppConfig;
 import com.demon.baseframe.model.BaseModel;
 import com.demon.baseframe.model.BasePresenterInfc;
 import com.demon.baseframe.model.BaseView;
@@ -35,7 +35,7 @@ public abstract class BaseActivity<T extends BasePresenterInfc> extends AppCompa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(BaseApp.SCREEN_MODE);
+        setRequestedOrientation(AppConfig.getInstance().getScreenMode());
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         BaseModel.mContext = this;
         mContext = this;
@@ -58,8 +58,14 @@ public abstract class BaseActivity<T extends BasePresenterInfc> extends AppCompa
     }
 
     protected void setStatusBar() {
-        StatusBarUtil.setTransparent(this);
-        StatusFontUtil.setStatusFont(this, true);
+        if (AppConfig.getInstance().isStatusBarDark()){
+            StatusBarUtil.setColorDiff(this, getResources().getColor(AppConfig.getInstance().getStatusBarColor()));
+            StatusFontUtil.setStatusFont(this, true);
+        }else {
+            StatusBarUtil.setColor(this, getResources().getColor(AppConfig.getInstance().getStatusBarColor()),0);
+            StatusFontUtil.setStatusFont(this,false);
+        }
+
     }
 
     /**

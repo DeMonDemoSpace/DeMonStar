@@ -1,5 +1,8 @@
 package com.cr.app;
 
+import android.content.pm.ActivityInfo;
+
+import com.demon.baseframe.app.AppConfig;
 import com.demon.baseframe.app.BaseApp;
 
 /**
@@ -14,5 +17,8 @@ public class App extends BaseApp {
     public void onCreate() {
         super.onCreate();
 
+        AppConfig.getInstance().setScreenMode(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        AppConfig.getInstance().setToolbarColor(R.color.colorAccent);
+        AppConfig.getInstance().setStatusBarDark(false);
     }
 }

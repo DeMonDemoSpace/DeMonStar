@@ -16,7 +16,9 @@ class MainBean : SectionEntity<String> {
         this.content = content
     }
 
-    constructor(isHeader: Boolean, content: String) : super(isHeader, content)
+    constructor(isHeader: Boolean, content: String) : super(isHeader, content){
+        this.content = content
+    }
 
 
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.demon.baseframe.R;
+import com.demon.baseframe.app.AppConfig;
 import com.demon.baseframe.model.BasePresenterInfc;
 
 import java.lang.reflect.Method;
@@ -20,8 +21,8 @@ import butterknife.ButterKnife;
  * @date 2017/12/18
  * @description 带有toolbar标题栏的BaseActivity
  * 1. 标题栏背景&标题栏菜单背景使用:color/colorPrimary
- * 2. 标题栏图标，字体，菜单颜色使用：color/textColorPrimary
- * 3. 统一修改标题栏的颜色，直接在自己项目的colors.xml重写colorPrimary，textColorPrimary这两个的颜色值即可（同名的资源系统会自动覆盖，自己项目中的优先级最高）。
+ * 2. 标题栏图标，字体，菜单颜色使用：color/titleTextColor
+ * 3. 统一修改标题栏的颜色，直接在自己项目的colors.xml重写colorPrimary，titleTextColor这两个的颜色值即可（同名的资源系统会自动覆盖，自己项目中的优先级最高）。
  * 4. 单个Activity特殊定制直接在子Activity，根据mToolbar设置即可。
  */
 public abstract class BaseBarActivity<T extends BasePresenterInfc> extends BaseActivity<T> {
@@ -40,6 +41,8 @@ public abstract class BaseBarActivity<T extends BasePresenterInfc> extends BaseA
         LayoutInflater.from(this).inflate(bindLayout(), viewContent);
         setToolbar(this, initTitle() + "");
         ButterKnife.bind(this);
+
+        mToolbar.setBackgroundColor(mContext.getResources().getColor(AppConfig.getInstance().getToolbarColor()));
     }
 
 

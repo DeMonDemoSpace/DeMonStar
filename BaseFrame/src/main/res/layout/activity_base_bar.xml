@@ -19,7 +19,7 @@
             android:theme="@style/ToolBarTheme"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:popupTheme="@style/ToolBarPopupTheme"
-            app:titleTextColor="@color/textColorPrimary"
+            app:titleTextColor="@color/titleTextColor"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
 
     </com.google.android.material.appbar.AppBarLayout>

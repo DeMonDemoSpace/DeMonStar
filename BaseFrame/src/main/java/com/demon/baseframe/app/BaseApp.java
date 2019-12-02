@@ -3,14 +3,12 @@ package com.demon.baseframe.app;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import com.demon.baseframe.helper.ActivityHelper;
 
 public class BaseApp extends Application {
     public static Context mContext;
-    public static int SCREEN_MODE;
     private static BaseApp application;
 
     @Override
@@ -18,7 +16,6 @@ public class BaseApp extends Application {
         super.onCreate();
         application = this;
         mContext = getApplicationContext();
-        SCREEN_MODE = ActivityInfo.SCREEN_ORIENTATION_USER;
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {

@@ -14,7 +14,7 @@ import com.demon.baselist.adapter.SectionAdapter
 
 class MainAdapter : SectionAdapter<MainBean> {
 
-    constructor(datas: List<MainBean>) : super(R.layout.list_mian_group, R.layout.list_mian_chlid, datas)
+    constructor(datas: List<MainBean>) : super( R.layout.list_mian_chlid, R.layout.list_mian_group,datas)
 
     override fun convert(helper: BaseViewHolder, item: MainBean) {
         helper.setText(R.id.tvText, item.content)
