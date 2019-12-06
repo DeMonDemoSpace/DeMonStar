@@ -38,7 +38,7 @@ public class PreviewImgActivity extends AppCompatActivity {
                     zoomImageView.setImageURI(Uri.fromFile(imgFile));
                     break;
                 case 0x002:
-                    zoomImageView.setImageResource(R.drawable.base_no_image);
+                    zoomImageView.setImageResource(R.drawable.base_img_error);
                     break;
             }
         }
@@ -91,7 +91,7 @@ public class PreviewImgActivity extends AppCompatActivity {
                 try {
                     zoomImageView.setImageURI(Uri.parse(value2));
                 } catch (Exception e) {
-                    zoomImageView.setImageResource(R.drawable.base_no_image);
+                    zoomImageView.setImageResource(R.drawable.base_img_error);
                 }
                 break;
             case 2:

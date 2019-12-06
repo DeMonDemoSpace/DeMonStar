@@ -18,5 +18,5 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:textSize="14sp" />
+        android:textSize="@dimen/sp14" />
 </RelativeLayout>

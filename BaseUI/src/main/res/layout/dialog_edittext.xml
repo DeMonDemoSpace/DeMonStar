@@ -12,5 +12,5 @@
         android:background="@drawable/shape_board_accent"
         android:padding="5dp"
         android:singleLine="true"
-        android:textSize="14sp" />
+        android:textSize="@dimen/sp14" />
 </LinearLayout>

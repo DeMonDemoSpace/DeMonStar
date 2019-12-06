@@ -27,8 +27,8 @@
 
     <style name="Line_solid">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">2dp</item>
-        <item name="android:background">#e0e0e0</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/base_line</item>
     </style>
 
     <style name="Line_solid.Margin" parent="Line_solid">

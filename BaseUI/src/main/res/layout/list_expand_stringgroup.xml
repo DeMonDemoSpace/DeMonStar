@@ -10,7 +10,7 @@
         android:layout_marginLeft="18dp"
         android:gravity="center_vertical"
         android:textColor="@color/base_black"
-        android:textSize="18sp" />
+        android:textSize="@dimen/sp15" />
 
     <ImageView
         android:id="@+id/expand_img"

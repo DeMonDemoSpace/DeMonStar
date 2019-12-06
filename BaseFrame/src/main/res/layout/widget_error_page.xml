@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/error_img"
+        android:src="@drawable/loading_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -16,22 +17,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="加载失败~"
         android:textColor="@color/base_text_color_light" />
 
     <TextView
         android:id="@+id/error_reload_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/base_btn_back_gray"
         android:clickable="true"
         android:gravity="center"
         android:paddingLeft="18dp"
         android:paddingTop="6dp"
         android:paddingRight="18dp"
-        android:visibility="gone"
         android:paddingBottom="6dp"
+        android:text="点击刷新重试"
         android:textColor="@color/base_text_color_light" />
-
 
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.demon.baseframe.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
@@ -58,12 +59,12 @@ public abstract class BaseActivity<T extends BasePresenterInfc> extends AppCompa
     }
 
     protected void setStatusBar() {
-        if (AppConfig.getInstance().isStatusBarDark()){
+        if (AppConfig.getInstance().isStatusBarDark() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             StatusBarUtil.setColorDiff(this, getResources().getColor(AppConfig.getInstance().getStatusBarColor()));
             StatusFontUtil.setStatusFont(this, true);
-        }else {
-            StatusBarUtil.setColor(this, getResources().getColor(AppConfig.getInstance().getStatusBarColor()),0);
-            StatusFontUtil.setStatusFont(this,false);
+        } else {
+            StatusBarUtil.setColor(this, getResources().getColor(AppConfig.getInstance().getStatusBarColor()), 0);
+            StatusFontUtil.setStatusFont(this, false);
         }
 
     }

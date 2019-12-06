@@ -9,10 +9,11 @@
         android:id="@+id/tv_msg_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableTop="@drawable/base_error"
         android:drawablePadding="15dp"
-        android:drawableTop="@drawable/base_empty"
         android:gravity="center"
-        android:textColor="#363636"
+        android:text="加载失败~~"
+        android:textColor="@color/base_text_color_light"
         android:textSize="16sp" />
 
 </LinearLayout>

@@ -156,6 +156,40 @@
 
     <declare-styleable name="CustomSearchView">
         <attr name="csv_query" format="string" />
+        <attr name="csv_inputType" format="enum">
+            <enum name="none" value="0x00000000" />
+            <enum name="text" value="0x00000001" />
+            <enum name="textCapCharacters" value="0x00001001" />
+            <enum name="textCapWords" value="0x00002001" />
+            <enum name="textCapSentences" value="0x00004001" />
+            <enum name="textAutoCorrect" value="0x00008001" />
+            <enum name="textAutoComplete" value="0x00010001" />
+            <enum name="textMultiLine" value="0x00020001" />
+            <enum name="textImeMultiLine" value="0x00040001" />
+            <enum name="textNoSuggestions" value="0x00080001" />
+            <enum name="textUri" value="0x00000011" />
+            <enum name="textEmailAddress" value="0x00000021" />
+            <enum name="textEmailSubject" value="0x00000031" />
+            <enum name="textShortMessage" value="0x00000041" />
+            <enum name="textLongMessage" value="0x00000051" />
+            <enum name="textPersonName" value="0x00000061" />
+            <enum name="textPostalAddress" value="0x00000071" />
+            <enum name="textPassword" value="0x00000081" />
+            <enum name="textVisiblePassword" value="0x00000091" />
+            <enum name="textWebEditText" value="0x000000a1" />
+            <enum name="textFilter" value="0x000000b1" />
+            <enum name="textPhonetic" value="0x000000c1" />
+            <enum name="textWebEmailAddress" value="0x000000d1" />
+            <enum name="textWebPassword" value="0x000000e1" />
+            <enum name="number" value="0x00000002" />
+            <enum name="numberSigned" value="0x00001002" />
+            <enum name="numberDecimal" value="0x00002002" />
+            <enum name="numberPassword" value="0x00000012" />
+            <enum name="phone" value="0x00000003" />
+            <enum name="datetime" value="0x00000004" />
+            <enum name="date" value="0x00000014" />
+            <enum name="time" value="0x00000024" />
+        </attr>
     </declare-styleable>
 
     <string-array name="base_color">
@@ -210,14 +244,14 @@
         <attr name="etv_textSize" format="dimension" />
         <attr name="etv_titleIcon" format="reference" />
         <attr name="etv_titleSize" format="dimension" />
-        <attr name="etv_rightImg" format="reference"/>
-        <attr name="etv_isCanEdit" format="boolean"/>
-        <attr name="etv_isMust" format="boolean"/>
+        <attr name="etv_rightImg" format="reference" />
+        <attr name="etv_isCanEdit" format="boolean" />
+        <attr name="etv_isMust" format="boolean" />
     </declare-styleable>
 
 
     <declare-styleable name="UploadImageView">
-        <attr name="uiv_tips" format="string"/>
+        <attr name="uiv_tips" format="string" />
     </declare-styleable>
 
     <declare-styleable name="TouchImageView">
@@ -227,13 +261,13 @@
 
     <declare-styleable name="MutilRadioGroup">
         <attr name="mrg_gravity" format="enum"><!--对齐方式 !-->
-            <enum name="right" value="0"/>
-            <enum name="left" value="1"/>
-            <enum name="center" value="2"/>
+            <enum name="right" value="0" />
+            <enum name="left" value="1" />
+            <enum name="center" value="2" />
         </attr>
-        <attr name="mrg_horizontal_Space" format="dimension"/>
-        <attr name="mrg_vertical_Space" format="dimension"/>
-        <attr name="mrg_isFull" format="boolean"/>
+        <attr name="mrg_horizontal_Space" format="dimension" />
+        <attr name="mrg_vertical_Space" format="dimension" />
+        <attr name="mrg_isFull" format="boolean" />
     </declare-styleable>
 
 </resources>

@@ -48,7 +48,7 @@ public class SinglePicActivity extends Activity implements View.OnClickListener 
                     strongImageView.setImage(imgFile);
                     break;
                 case 0x002:
-                    strongImageView.setImage(getResources().openRawResource(R.drawable.base_no_image));
+                    strongImageView.setImage(getResources().openRawResource(R.drawable.base_img_error));
                     break;
             }
         }

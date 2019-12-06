@@ -11,8 +11,8 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/option_background_rectangle"
         android:orientation="vertical"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp">
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMenu"
@@ -30,6 +30,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/option_background_rectangle"
         android:text="@string/base_negative"
-        android:textColor="@color/base_red" />
+        android:textColor="@color/base_red"
+        android:textSize="@dimen/sp14" />
 
 </RelativeLayout>

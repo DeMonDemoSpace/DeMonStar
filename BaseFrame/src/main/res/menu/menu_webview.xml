@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/webview_back"
+        android:icon="@drawable/webview_back_normal"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/webview_forward"
+        android:icon="@drawable/webview_forward_normal"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/webview_close"
+        android:icon="@drawable/webview_close_normal"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/webview_fresh"
+        android:icon="@drawable/webview_fresh_normal"
+        tools:ignore="MenuTitle" />
+</menu>

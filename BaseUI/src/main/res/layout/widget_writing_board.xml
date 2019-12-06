@@ -36,7 +36,7 @@
             android:drawableLeft="@drawable/base_back"
             android:gravity="center"
             android:text="@string/base_undo"
-            android:textSize="16sp" />
+            android:textSize="@dimen/sp16" />
 
         <TextView
             android:id="@+id/tv_restore"
@@ -48,7 +48,7 @@
             android:drawableRight="@drawable/base_go"
             android:gravity="center"
             android:text="@string/base_store"
-            android:textSize="16sp" />
+            android:textSize="@dimen/sp16" />
 
         <TextView
             android:id="@+id/tv_clear"
@@ -60,7 +60,7 @@
             android:drawableLeft="@drawable/base_clear"
             android:gravity="center"
             android:text="@string/base_clear"
-            android:textSize="16sp" />
+            android:textSize="@dimen/sp16" />
 
         <TextView
             android:id="@+id/tv_save"
@@ -72,7 +72,7 @@
             android:drawableLeft="@drawable/base_save"
             android:gravity="center"
             android:text="@string/base_save"
-            android:textSize="16sp" />
+            android:textSize="@dimen/sp16" />
 
     </LinearLayout>
 

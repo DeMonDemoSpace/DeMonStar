@@ -96,7 +96,7 @@ public class MultiPicActivity extends Activity {
                 switch (type) {
                     case URL:
                         if (fileList.get(position) == null) {
-                            strongImageView.setImage(getResources().openRawResource(R.drawable.base_no_image));
+                            strongImageView.setImage(getResources().openRawResource(R.drawable.base_img_error));
                         } else {
                             strongImageView.setImage(fileList.get(position));
                         }

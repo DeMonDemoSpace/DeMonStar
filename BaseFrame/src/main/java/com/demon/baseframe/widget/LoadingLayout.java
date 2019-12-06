@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.demon.baseframe.R;
+
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntDef;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.demon.baseframe.R;
 
 
 /**
@@ -526,9 +526,9 @@ public class LoadingLayout extends ConstraintLayout {
      */
     public static class Config {
 
-        String emptyStr = "暂无数据，请稍后重试...";
-        String errorStr = "加载失败，请稍后重试...";
-        String netwrokStr = "无网络连接，请检查网络...";
+        String emptyStr = "暂无数据~";
+        String errorStr = "加载失败~";
+        String netwrokStr = "网络故障，请检查网络~";
         String reloadBtnStr = "点击刷新重试";
         int emptyImgId = R.drawable.loading_empty;
         int errorImgId = R.drawable.loading_error;

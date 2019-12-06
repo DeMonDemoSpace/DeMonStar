@@ -70,7 +70,7 @@ public class RecycleViewStateView {
         if (!TextUtils.isEmpty(emptyText)) {
             emptyTextView.setText(emptyText);
         } else {
-            emptyText = "暂无数据哦~~";
+            emptyText = "暂无数据~~";
             emptyTextView.setText(emptyText);
         }
 
@@ -81,7 +81,7 @@ public class RecycleViewStateView {
         if (!TextUtils.isEmpty(errorText)) {
             errorTextView.setText(emptyText);
         } else {
-            emptyText = "加载失败，请稍后重试···";
+            emptyText = "加载失败~~";
             errorTextView.setText(emptyText);
         }
         return errorView;

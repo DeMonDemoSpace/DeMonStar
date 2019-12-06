@@ -27,7 +27,7 @@ public class GlideUtil {
     //根据图片url将图片显示在img控件上
     public static void setImage(Context context, String url, ImageView img) {
         if (context != null) {
-            RequestOptions options = new RequestOptions().error(R.drawable.base_no_image);
+            RequestOptions options = new RequestOptions().error(R.drawable.base_img_error).placeholder(R.drawable.base_img_loading);
             Glide.with(context).load(url).apply(options).into(img);
         }
     }
@@ -35,7 +35,7 @@ public class GlideUtil {
     //根据图片GlideUrl将图片显示在img控件上
     public static void setGlideUrlImage(Context context, GlideUrl url, ImageView img) {
         if (context != null) {
-            RequestOptions options = new RequestOptions().error(R.drawable.base_no_image)
+            RequestOptions options = new RequestOptions().error(R.drawable.base_img_error).placeholder(R.drawable.base_img_loading)
                     .skipMemoryCache(true)// 不使用内存缓存
                     .diskCacheStrategy(DiskCacheStrategy.NONE);
             Glide.with(context).load(url).apply(options)
@@ -64,12 +64,12 @@ public class GlideUtil {
      * 根据图片uri将图片显示在img控件上
      */
     public static void setImage(Context context, Uri uri, ImageView img) {
-        RequestOptions options = new RequestOptions().error(R.drawable.base_no_image);
+        RequestOptions options = new RequestOptions().error(R.drawable.base_img_error).placeholder(R.drawable.base_img_loading);
         Glide.with(context).load(uri).apply(options).into(img);
     }
 
     public static void setImage(Context context, Uri uri, ImageView img, int defaultImg) {
-        RequestOptions options = new RequestOptions().placeholder(defaultImg).error(R.drawable.base_no_image);
+        RequestOptions options = new RequestOptions().placeholder(defaultImg).error(defaultImg);
         Glide.with(context).load(uri).apply(options).into(img);
     }
 
@@ -100,14 +100,14 @@ public class GlideUtil {
 
     public static void setCircleImage(Context context, int id, ImageView img) {
         if (context != null) {
-            RequestOptions options = new RequestOptions().circleCrop();
+            RequestOptions options = new RequestOptions().circleCrop().error(R.drawable.base_img_error).placeholder(R.drawable.base_img_loading);
             Glide.with(context).load(id).apply(options).into(img);
         }
     }
 
     public static void setCircleImage(Context context, String url, ImageView img) {
         if (context != null) {
-            RequestOptions options = new RequestOptions().circleCrop().error(R.drawable.base_no_image);
+            RequestOptions options = new RequestOptions().circleCrop().error(R.drawable.base_img_error).placeholder(R.drawable.base_img_loading);
             Glide.with(context).load(url).apply(options).into(img);
         }
     }

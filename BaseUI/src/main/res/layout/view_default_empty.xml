@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="试试刷新加载数据~"
-        android:textColor="#2186AB" />
+        android:text="暂无数据，刷新重新加载~"
+        android:textColor="@color/base_text_light" />
 </LinearLayout>
 

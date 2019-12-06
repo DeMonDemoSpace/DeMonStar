@@ -18,7 +18,8 @@
     <color name="base_blue">#039be5</color>
     <color name="base_deep_blue">#388696</color>
     <color name="base_text">#575757</color>
-    <color name="base_text_light">#D7D7D7</color>
+    <color name="base_text_light">#909090</color>
+    <color name="base_text_white">#D7D7D7</color>
     <color name="base_text_dark">#333333</color>
     <color name="base_title_color">#32343E</color>
     <color name="base_text_color">#999999</color>

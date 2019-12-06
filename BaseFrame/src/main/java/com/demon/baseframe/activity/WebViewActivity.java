@@ -26,7 +26,6 @@ import com.demon.baseframe.R;
 
 public class WebViewActivity extends BaseBarActivity implements View.OnClickListener {
     private static final String TAG = "WebViewActivity";
-    private static final String WEBVIEW_NAME = "WebViewName";
     private static final String WEBVIEW_URL = "WebViewUrl";
     private static final String WEBVIEW_NAV = "WebViewNav";
     private WebView mWbWebView;
@@ -36,24 +35,21 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
     private ImageView mIvClose;
     private ImageView mIvFresh;
 
-    private String mWebViewName;
     private String mWebViewUrl;
 
     /**
      * 获取WebViewActivity的Intent
      *
      * @param context 上下文
-     * @param name    网页标题名
      * @param url     网址
      * @return WebViewActivity的Intent
      */
-    public static Intent newIntent(Context context, String name, String url) {
-        return newIntent(context, name, url, false);
+    public static Intent newIntent(Context context, String url) {
+        return newIntent(context, url, false);
     }
 
-    public static Intent newIntent(Context context, String name, String url, boolean isShowNav) {
+    public static Intent newIntent(Context context, String url, boolean isShowNav) {
         Intent intent = new Intent(context, WebViewActivity.class);
-        intent.putExtra(WEBVIEW_NAME, name);
         intent.putExtra(WEBVIEW_URL, url);
         intent.putExtra(WEBVIEW_NAV, isShowNav);
         return intent;
@@ -67,12 +63,11 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
 
     @Override
     public String initTitle() {
-        return mWebViewName;
+        return "";
     }
 
     @Override
     public void initCreate() {
-        mWebViewName = getIntent().getStringExtra(WEBVIEW_NAME);
         mWebViewUrl = getIntent().getStringExtra(WEBVIEW_URL);
         boolean isShowBar = getIntent().getBooleanExtra(WEBVIEW_NAV, false);
         LinearLayout webviewNavigation = findViewById(R.id.ll_webview_navigation);
@@ -129,6 +124,7 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
                 view.loadUrl(url);
                 return true;
             }
+
         });
         mWbWebView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -142,6 +138,13 @@ public class WebViewActivity extends BaseBarActivity implements View.OnClickList
                     mProgress.setProgress(newProgress);
                 }
                 super.onProgressChanged(view, newProgress);
+            }
+
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                super.onReceivedTitle(view, title);
+                mToolbar.setTitle(title);
+
             }
         });
     }

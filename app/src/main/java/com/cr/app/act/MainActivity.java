@@ -28,8 +28,10 @@ public class MainActivity extends BaseBarActivity<BasePresenterInfc> {
 
     @Override
     protected void initCreate() {
+        isShowBack(false);
         beanList.add(new MainBean(true, "BaseFrame"));
         beanList.add(new MainBean("MVP"));
+        beanList.add(new MainBean("WebView"));
         beanList.add(new MainBean(true, "BaseList"));
         beanList.add(new MainBean("普通列表"));
         beanList.add(new MainBean("分组列表"));

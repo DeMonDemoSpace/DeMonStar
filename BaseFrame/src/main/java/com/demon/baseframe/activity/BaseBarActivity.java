@@ -3,7 +3,6 @@ package com.demon.baseframe.activity;
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import com.demon.baseframe.R;
@@ -12,7 +11,6 @@ import com.demon.baseframe.model.BasePresenterInfc;
 
 import java.lang.reflect.Method;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import butterknife.ButterKnife;
 
@@ -39,7 +37,7 @@ public abstract class BaseBarActivity<T extends BasePresenterInfc> extends BaseA
         FrameLayout viewContent = findViewById(R.id.viewContent);
         mToolbar = findViewById(R.id.toolbar);  //#34393A
         LayoutInflater.from(this).inflate(bindLayout(), viewContent);
-        setToolbar(this, initTitle() + "");
+        setToolbar(initTitle() + "");
         ButterKnife.bind(this);
 
         mToolbar.setBackgroundColor(mContext.getResources().getColor(AppConfig.getInstance().getToolbarColor()));
@@ -78,18 +76,19 @@ public abstract class BaseBarActivity<T extends BasePresenterInfc> extends BaseA
     /**
      * 置标题及按钮功能
      *
-     * @param activity
      * @param title
      */
-    public void setToolbar(final AppCompatActivity activity, String title) {
+    public void setToolbar(String title) {
         mToolbar.setTitle(title);
-        activity.setSupportActionBar(mToolbar);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.finish();
-            }
-        });
+        setSupportActionBar(mToolbar);
+        isShowBack(true);
+        mToolbar.setNavigationOnClickListener(v -> finish());
+    }
+
+
+    public void isShowBack(boolean isShow) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(isShow);//左侧添加一个默认的返回图标
+        getSupportActionBar().setHomeButtonEnabled(isShow); //设置返回键可用
     }
 
 }
