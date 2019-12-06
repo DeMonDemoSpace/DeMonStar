@@ -66,7 +66,7 @@ public class CustomSearchView extends ConstraintLayout {
                     String query = etQuery.getText().toString().trim();
                     if (!TextUtils.isEmpty(query)) {
                         if (onQueryListener != null) {
-                            onQueryListener.onCancel();
+                            onQueryListener.onQueryTextSubmit(query);
                         }
                     } else {
                         ToastUtil.showWarningToast(mContext, "搜索内容不能为空！");

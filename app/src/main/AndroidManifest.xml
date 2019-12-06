@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".act.mvp.contract.CityActivity"></activity>
+        <activity android:name=".act.mvp.CityActivity"></activity>
         <activity android:name=".act.mvp.WeatherActivity" />
         <activity android:name=".act.mvp.MvpActivity" />
         <activity android:name=".act.MainActivity">

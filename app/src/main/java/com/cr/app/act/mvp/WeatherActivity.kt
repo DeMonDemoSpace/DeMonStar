@@ -1,5 +1,6 @@
 package com.cr.app.act.mvp
 
+import android.content.Intent
 import com.cr.app.R
 import com.cr.app.act.mvp.contract.WeatherContract
 import com.cr.app.bean.WeatherNow
@@ -16,7 +17,7 @@ class WeatherActivity : BaseBarActivity<WeatherContract.Presenter>(), WeatherCon
 
 
         fabCity.setOnClickListener {
-
+            startActivity(Intent(mContext, CityActivity::class.java))
         }
 
     }
