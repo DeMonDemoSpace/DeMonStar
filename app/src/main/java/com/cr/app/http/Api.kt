@@ -12,19 +12,9 @@ import retrofit2.Retrofit
 class Api {
     companion object {
 
-        @Volatile
-        private var retrofit: Retrofit? = null
-
         fun getRetrofit(base_url: String): Retrofit? {
-            if (retrofit == null) {
-                synchronized(Api::class.java) {
-                    if (retrofit == null) {
-                        val baseApi = BaseApi()
-                        retrofit = baseApi.getRetrofit(base_url)
-                    }
-                }
-            }
-            return retrofit
+            val baseApi = BaseApi()
+            return baseApi.getRetrofit(base_url, CommonInterceptor())
         }
     }
 

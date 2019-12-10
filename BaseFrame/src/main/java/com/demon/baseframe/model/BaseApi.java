@@ -36,8 +36,6 @@ public class BaseApi {
      * @return
      */
     public Retrofit getRetrofit(String baseUrl, Interceptor... interceptors) {
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
-        logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         //缓存
         File cacheFile = new File(BaseApp.getContext().getCacheDir(), "cache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
@@ -51,6 +49,8 @@ public class BaseApi {
                 .addNetworkInterceptor(new CacheControlInterceptor())//网络缓存
                 .cache(cache);
         if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
+            logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(logInterceptor);//日志
         }
 

@@ -8,7 +8,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.demon.baseui.R;
@@ -24,7 +23,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
  * @description
  */
 public class CustomSearchView extends ConstraintLayout {
-    private EditText etQuery;
+    private ClearWriteEditText etQuery;
     private TextView btnSearch;
     private OnQueryListener onQueryListener;
     private Context mContext;
@@ -76,6 +75,7 @@ public class CustomSearchView extends ConstraintLayout {
 
             }
         });
+
         typedArray.recycle();
 
     }

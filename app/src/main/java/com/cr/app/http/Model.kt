@@ -9,11 +9,15 @@ import com.demon.baseframe.model.BaseModel
  * @email 757454343@qq.com
  * @description
  */
-class Model : BaseModel() {
+class Model : BaseModel {
     private val WEATHER_URL = "https://free-api.heweather.net/s6/weather/"
-    private val CITY_URL = "https://search.heweather.net/find"
+
+    private val CITY_URL = "https://search.heweather.net/"
 
     companion object {
+        lateinit var weatherService: ApiService
+        lateinit var cityService: ApiService
+
         fun getInstance() = Helper.instance
     }
 
@@ -21,8 +25,10 @@ class Model : BaseModel() {
         val instance = Model()
     }
 
-    private val weatherService = Api.getRetrofit(WEATHER_URL)!!.create(ApiService::class.java)
-    private val cityService = Api.getRetrofit(CITY_URL)!!.create(ApiService::class.java)
+    constructor() {
+        weatherService = Api.getRetrofit(WEATHER_URL)!!.create(ApiService::class.java)
+        cityService = Api.getRetrofit(CITY_URL)!!.create(ApiService::class.java)
+    }
 
 
     fun get(url: String, listener: OnRequest) {

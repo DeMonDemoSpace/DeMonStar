@@ -11,16 +11,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.demon.baseutil.R;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.demon.baseutil.R;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 /**
  * Created by Jaeger on 16/2/14.
@@ -140,7 +140,6 @@ public class StatusBarUtil {
      * @param activity 需要设置的 activity
      * @param color    状态栏颜色值
      */
-    @Deprecated
     public static void setColorDiff(Activity activity, @ColorInt int color) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;

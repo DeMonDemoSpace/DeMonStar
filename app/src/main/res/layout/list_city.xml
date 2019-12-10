@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp40"
+    android:background="@drawable/option_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/dp18"
+        android:textColor="@color/base_text_light"
+        android:textSize="@dimen/sp15" />
+
+    <View
+        style="@style/Line_dashed.Margin"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
