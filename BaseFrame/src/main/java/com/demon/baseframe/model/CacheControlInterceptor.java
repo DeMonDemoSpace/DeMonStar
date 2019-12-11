@@ -3,7 +3,7 @@ package com.demon.baseframe.model;
 import android.text.TextUtils;
 
 import com.demon.baseframe.app.BaseApp;
-import com.demon.baseframe.util.NetWorkUtil;
+import com.demon.baseutil.NetWorkUtils;
 
 import java.io.IOException;
 
@@ -28,13 +28,13 @@ public class CacheControlInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         String cacheControl = request.cacheControl().toString();
-        if (!NetWorkUtil.isNetConnected(BaseApp.getContext())) {
+        if (!NetWorkUtils.isNetConnected(BaseApp.getContext())) {
             request = request.newBuilder()
                     .cacheControl(TextUtils.isEmpty(cacheControl) ? CacheControl.FORCE_NETWORK : CacheControl.FORCE_CACHE)
                     .build();
         }
         Response originalResponse = chain.proceed(request);
-        if (NetWorkUtil.isNetConnected(BaseApp.getContext())) {
+        if (NetWorkUtils.isNetConnected(BaseApp.getContext())) {
             return originalResponse.newBuilder()
                     .header("Cache-Control", cacheControl)
                     .removeHeader("Pragma")
