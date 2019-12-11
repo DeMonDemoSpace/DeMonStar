@@ -17,9 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".act.mvp.CityActivity"></activity>
+        <activity android:name=".act.mvp.CityActivity"/>
         <activity android:name=".act.mvp.WeatherActivity" />
-        <activity android:name=".act.mvp.MvpActivity" />
         <activity android:name=".act.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
