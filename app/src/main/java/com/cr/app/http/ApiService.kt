@@ -1,5 +1,6 @@
 package com.cr.app.http
 
+import com.cr.app.data.Constants
 import com.google.gson.JsonObject
 import io.reactivex.Observable
 import retrofit2.http.*
@@ -22,5 +23,9 @@ interface ApiService {
 
     @POST
     fun post(@Url url: String, @Body json: JsonObject): Observable<DataBean>
+
+
+    @GET("now")
+    fun getNowWeather(@Query(Constants.LOCATION) location: String): Observable<DataBean>
 
 }
