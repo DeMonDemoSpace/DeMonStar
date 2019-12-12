@@ -28,7 +28,7 @@ dependencies {
 
 #### butterknife
 
-如果是使用java开发需要使用butterknife，则需要在你的app.build.gradle中添加：  
+如果是使用java开发需要使用butterknife，则需要在你的app/build.gradle中添加：  
 
 ```
 android {
@@ -58,12 +58,14 @@ android {
 
 ### 整体简介
 
-|Library|说明|框架|  
+|Library|说明|所含框架|  
 |--|--|--|  
-|BaseFrame|基础架构：MVP+Retrofit2.0+RxJava2.0，RxBus|Retrofit2.0，RxJava2.0|  
+|BaseFrame|基础架构：MVP+Retrofit2.0+RxJava2.0，RxBus|okhttp3,Retrofit2.0,RxJava2.0,rxlifecycle,Gson|  
 |BaseList|列表优化：空视图，上拉加载更多，拖拽删除等|BaseRecyclerViewAdapterHelper|  
 |BasUI|自定义View：Dialog，PopWindow封装，ClearWriteEditText,CircleImageView等|Glide4.x，知乎matisse|  
 |BaseUtil|通用方法集合：des加密解密，文件操作，状态栏工具，Toasty封装等|Toasty|  
+
+**注：注所含框架可直接使用，无需重复引用！！！**
 
 
 
