@@ -76,7 +76,7 @@ android {
 
 ### Bugs or Questions
 
-1. 在issues留言
+1. issues
 2. email:757454343@qq.com
 
 ### MIT LICENSE

@@ -34,12 +34,12 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.jakewharton:butterknife:10.2.0"
     annotationProcessor "com.jakewharton:butterknife-compiler:10.2.0"
-    implementation project(path: ':BaseUI')
+    /*implementation project(path: ':BaseUI')
     implementation project(path: ':BaseList')
     implementation project(path: ':BaseFrame')
-    implementation project(path: ':BaseUtil')
+    implementation project(path: ':BaseUtil')*/
 
-    //implementation 'com.github.DeMonLiu623:DeMonStar:v1.0'
+    implementation 'com.github.DeMonLiu623:DeMonStar:v1.1.0'
 }
 repositories {
     mavenCentral()
