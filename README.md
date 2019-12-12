@@ -4,7 +4,7 @@
 
 一个集网络请求封装，列表优化，自定义View，通用工具类一体的简化开发成本的Android基础架构。    
 
-### 使用
+### Use
 
 ```
 allprojects {
@@ -23,13 +23,13 @@ dependencies {
 
 The latest version is: [![](https://jitpack.io/v/DeMonLiu623/DeMonStar.svg)](https://jitpack.io/#DeMonLiu623/DeMonStar)
 
-#### 环境
+#### Development Environment
 1. 支持Java&Kotlin语言。  
 2. AndroidX
 3. minSdkVersion = 16
 4. AndroidStudio 3.x
 
-#### butterknife
+#### Butterknife
 
 如果是使用java开发需要使用butterknife，则需要在你的app/build.gradle中添加：  
 
@@ -48,7 +48,7 @@ android {
     }
 ```
 
-#### permission
+#### Permission
 
 最少需要添加如下4个权限：  
 ```
@@ -59,7 +59,7 @@ android {
 ```
 
 
-### 整体简介
+### Introduction
 
 |Library|说明|所含框架|  
 |--|--|--|  
@@ -70,6 +70,36 @@ android {
 
 **注：注所含框架可直接使用，无需重复引用！！！**
 
+### More
+
+请看demo代码。
+
+### Bugs or Questions
+
+1. 在issues留言
+2. email:757454343@qq.com
+
+### MIT LICENSE
+
+```
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 
 
