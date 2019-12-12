@@ -17,9 +17,12 @@ allprojects {
 
 ```
 dependencies {
-	        implementation 'com.github.DeMonLiu623:DeMonStar:v1.0'
+	        implementation 'com.github.DeMonLiu623:DeMonStar:$latest-version'
 	}
 ```
+
+The latest version is: [![](https://jitpack.io/v/DeMonLiu623/DeMonStar.svg)](https://jitpack.io/#DeMonLiu623/DeMonStar)
+
 #### 环境
 1. 支持Java&Kotlin语言。  
 2. AndroidX
@@ -62,7 +65,7 @@ android {
 |--|--|--|  
 |BaseFrame|基础架构：MVP+Retrofit2.0+RxJava2.0，RxBus|okhttp3,Retrofit2.0,RxJava2.0,rxlifecycle,Gson|  
 |BaseList|列表优化：空视图，上拉加载更多，拖拽删除等|BaseRecyclerViewAdapterHelper|  
-|BasUI|自定义View：Dialog，PopWindow封装，ClearWriteEditText,CircleImageView等|Glide4.x，知乎matisse|  
+|BaseUI|自定义View：Dialog，PopWindow封装，ClearWriteEditText,CircleImageView等|Glide4.x，知乎matisse|  
 |BaseUtil|通用方法集合：des加密解密，文件操作，状态栏工具，Toasty封装等|Toasty|  
 
 **注：注所含框架可直接使用，无需重复引用！！！**
