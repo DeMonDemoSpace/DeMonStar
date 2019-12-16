@@ -4,7 +4,6 @@ import io.reactivex.Observable
 import io.rx_cache2.DynamicKey
 import io.rx_cache2.EvictProvider
 import io.rx_cache2.LifeCache
-import io.rx_cache2.ProviderKey
 import java.util.concurrent.TimeUnit
 
 
@@ -16,12 +15,6 @@ import java.util.concurrent.TimeUnit
  */
 interface CacheProviders {
 
-
-    @ProviderKey("WeatherNow")
-    @LifeCache(duration = 60, timeUnit = TimeUnit.MINUTES) //缓存有效期24小时
-    fun getWeatherNow(observable: Observable<DataBean>): Observable<DataBean>
-
-    @ProviderKey("getWeatherNow")
-    @LifeCache(duration = 60, timeUnit = TimeUnit.MINUTES) //缓存有效期24小时
-    fun getWeatherNow(observable: Observable<DataBean>, key: DynamicKey, evictProvider: EvictProvider): Observable<DataBean>
+    @LifeCache(duration = 1, timeUnit = TimeUnit.MINUTES) //缓存有效期24小时
+    fun getWeatherNow(observable: Observable<String>, key: DynamicKey, evictProvider: EvictProvider): Observable<String>
 }

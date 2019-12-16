@@ -1,7 +1,6 @@
 package com.demon.baseframe.model;
 
 
-import com.demon.baseframe.BuildConfig;
 import com.demon.baseframe.app.BaseApp;
 
 import java.io.File;
@@ -23,9 +22,22 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class BaseApi {
     //超时时长，单位：毫秒
     private int TimeOut = 7676;
+    private boolean isCache = false;
+    private boolean isLog = true;
 
-    public void setTimeOut(int timeOut) {
+    public BaseApi setTimeOut(int timeOut) {
         TimeOut = timeOut;
+        return this;
+    }
+
+    public BaseApi setCache(boolean cache) {
+        isCache = cache;
+        return this;
+    }
+
+    public BaseApi setLog(boolean log) {
+        isLog = log;
+        return this;
     }
 
     /**
@@ -36,19 +48,21 @@ public class BaseApi {
      * @return
      */
     public Retrofit getRetrofit(String baseUrl, Interceptor... interceptors) {
-        //缓存
-        File cacheFile = new File(BaseApp.getContext().getCacheDir(), "cache");
-        Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
         //创建一个OkHttpClient并设置超时时间
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         builder.readTimeout(TimeOut, TimeUnit.MILLISECONDS)
                 .writeTimeout(TimeOut, TimeUnit.MILLISECONDS)
-                .connectTimeout(TimeOut, TimeUnit.MILLISECONDS)
-                .addInterceptor(new CacheControlInterceptor())//缓存
-                .addNetworkInterceptor(new CacheControlInterceptor())//网络缓存
-                .cache(cache);
-        if (BuildConfig.DEBUG) {
+                .connectTimeout(TimeOut, TimeUnit.MILLISECONDS);
+        if (isCache) {
+            //缓存
+            File cacheFile = new File(BaseApp.getContext().getCacheDir(), "cache");
+            Cache cache = new Cache(cacheFile, 1024 * 1024 * 200); //200Mb
+            builder.addInterceptor(new CacheInterceptor())//缓存
+                    .addNetworkInterceptor(new CacheInterceptor())//网络缓存
+                    .cache(cache);
+        }
+        if (isLog) {
             HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
             logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(logInterceptor);//日志

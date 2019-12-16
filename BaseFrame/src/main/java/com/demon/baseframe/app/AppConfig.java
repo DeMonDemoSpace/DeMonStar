@@ -11,23 +11,25 @@ import com.demon.baseframe.R;
  * @description 框架内容单例配置
  */
 public class AppConfig {
-    private static AppConfig instance ;
-    private AppConfig(){
+    private static AppConfig instance;
+
+    private AppConfig() {
 
     }
-    public static AppConfig getInstance(){
-        if (instance == null){
-            instance=  new AppConfig();
+
+    public static AppConfig getInstance() {
+        if (instance == null) {
+            instance = new AppConfig();
         }
         return instance;
     }
 
-
-    private int screenMode  = ActivityInfo.SCREEN_ORIENTATION_USER; //屏幕模式，直接使用ActivityInfo进行设置即可
-
+    //屏幕方向
+    private int screenMode = ActivityInfo.SCREEN_ORIENTATION_USER; //屏幕模式，直接使用ActivityInfo进行设置即可
+    //状态栏
     private int toolbarColor = R.color.colorPrimary; //标题栏颜色
-    private int statusBarColor =  R.color.colorPrimary; //状态栏颜色
-    private boolean isStatusBarDark = false; //
+    private int statusBarColor = R.color.colorPrimary; //状态栏颜色
+    private boolean isStatusBarDark = false; //状态栏字体颜色
 
 
     public int getScreenMode() {
@@ -61,4 +63,5 @@ public class AppConfig {
     public void setStatusBarDark(boolean statusBarDark) {
         isStatusBarDark = statusBarDark;
     }
+
 }

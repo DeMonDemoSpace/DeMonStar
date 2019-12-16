@@ -7,6 +7,8 @@ package com.cr.app.data
  * @description
  */
 object Constants {
+     var NET = true
+
     const val KEY = "key"
     const val KEY_VALUE = "e7550178d4334c6d966224b30c66303c"
     const val STATUS = "status"

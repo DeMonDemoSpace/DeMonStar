@@ -24,8 +24,8 @@ interface ApiService {
     @POST
     fun post(@Url url: String, @Body json: JsonObject): Observable<DataBean>
 
-
+    //@Headers("Cache-Control:public ,max-age=60")
     @GET("now")
-    fun getNowWeather(@Query(Constants.LOCATION) location: String): Observable<DataBean>
+    fun getNowWeather(@Query(Constants.LOCATION) location: String): Observable<String>
 
 }

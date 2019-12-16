@@ -1,7 +1,5 @@
 package com.demon.baseframe.model;
 
-import android.text.TextUtils;
-
 import com.demon.baseframe.app.BaseApp;
 import com.demon.baseutil.NetWorkUtils;
 
@@ -18,7 +16,7 @@ import okhttp3.Response;
  * @email 757454343@qq.com
  * @description 云端响应头拦截器，用来配置缓存策略
  */
-public class CacheControlInterceptor implements Interceptor {
+public class CacheInterceptor implements Interceptor {
     /**
      * 设缓存有效期为7天
      */
@@ -27,22 +25,21 @@ public class CacheControlInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        String cacheControl = request.cacheControl().toString();
         if (!NetWorkUtils.isNetConnected(BaseApp.getContext())) {
             request = request.newBuilder()
-                    .cacheControl(TextUtils.isEmpty(cacheControl) ? CacheControl.FORCE_NETWORK : CacheControl.FORCE_CACHE)
+                    .cacheControl(CacheControl.FORCE_CACHE)
                     .build();
         }
         Response originalResponse = chain.proceed(request);
         if (NetWorkUtils.isNetConnected(BaseApp.getContext())) {
             return originalResponse.newBuilder()
-                    .header("Cache-Control", cacheControl)
                     .removeHeader("Pragma")
+                    .header("Cache-Control", "public,max-age" + 0)
                     .build();
         } else {
             return originalResponse.newBuilder()
-                    .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_STALE_SEC)
                     .removeHeader("Pragma")
+                    .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_STALE_SEC)
                     .build();
         }
     }

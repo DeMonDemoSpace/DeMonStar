@@ -1,5 +1,6 @@
 package com.cr.app.http
 
+import com.cr.app.BuildConfig
 import com.demon.baseframe.model.BaseApi
 import retrofit2.Retrofit
 
@@ -13,7 +14,7 @@ class Api {
     companion object {
 
         fun getRetrofit(base_url: String): Retrofit? {
-            val baseApi = BaseApi()
+            val baseApi = BaseApi().setLog(BuildConfig.DEBUG).setCache(false)
             return baseApi.getRetrofit(base_url, CommonInterceptor())
         }
     }

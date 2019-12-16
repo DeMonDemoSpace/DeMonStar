@@ -29,6 +29,9 @@ class MainAdapter : SectionAdapter<MainBean> {
                 "WebView" -> {
                     mContext.startActivity(WebViewActivity.newIntent(mContext, "https://www.baidu.com/", true))
                 }
+                "RxCache" -> {
+
+                }
             }
         }
     }

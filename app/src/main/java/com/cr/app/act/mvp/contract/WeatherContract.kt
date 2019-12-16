@@ -24,7 +24,7 @@ class WeatherContract {
         fun getNormalWeather(city: String) {
             val map = HashMap<String, String>()
             map[Constants.LOCATION] = city
-            Model.getInstance().getNowWeather(city, false, object : OnRequest {
+            Model.getInstance().getNowWeather(city, object : OnRequest {
                 override fun onSucceed(obj: DataBean) {
                     mView.weather(obj.getDataBean("now", WeatherNow::class.java))
                 }

@@ -1,8 +1,12 @@
 package com.cr.app.act;
 
+
+import android.content.Intent;
+
 import com.cr.app.R;
 import com.cr.app.adapter.MainAdapter;
 import com.cr.app.bean.MainBean;
+import com.cr.app.net.NetWorkService;
 import com.demon.baseframe.activity.BaseBarActivity;
 import com.demon.baseframe.model.BasePresenterInfc;
 
@@ -11,7 +15,6 @@ import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import butterknife.BindView;
 
 public class MainActivity extends BaseBarActivity<BasePresenterInfc> {
@@ -32,6 +35,7 @@ public class MainActivity extends BaseBarActivity<BasePresenterInfc> {
         beanList.add(new MainBean(true, "BaseFrame"));
         beanList.add(new MainBean("MVP"));
         beanList.add(new MainBean("WebView"));
+        beanList.add(new MainBean("RxCache"));
         beanList.add(new MainBean(true, "BaseList"));
         beanList.add(new MainBean("普通列表"));
         beanList.add(new MainBean("分组列表"));
@@ -43,6 +47,9 @@ public class MainActivity extends BaseBarActivity<BasePresenterInfc> {
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         adapter = new MainAdapter(beanList);
         recyclerView.setAdapter(adapter);
+
+        startService(new Intent(mContext, NetWorkService.class));
+
 
     }
 
