@@ -1,8 +1,11 @@
 package com.cr.app.http
 
-import android.annotation.SuppressLint
 import com.cr.app.App
+import com.cr.app.data.Constants
 import com.demon.baseframe.model.BaseModel
+import com.demon.baseframe.model.BaseService
+import io.rx_cache2.DynamicKey
+import io.rx_cache2.EvictProvider
 import io.rx_cache2.internal.RxCache
 import io.victoralbertos.jolyglot.GsonSpeaker
 
@@ -20,7 +23,8 @@ class Model : BaseModel {
 
     private var providers: CacheProviders
     private var weatherService: ApiService
-    private var cityService: ApiService
+    private var cityService: BaseService
+    private var service: BaseService
 
     companion object {
         fun getInstance() = Helper.instance
@@ -31,38 +35,42 @@ class Model : BaseModel {
     }
 
     constructor() {
+        service = Api.getRetrofit(WEATHER_URL)!!.create(BaseService::class.java)
+
         weatherService = Api.getRetrofit(WEATHER_URL)!!.create(ApiService::class.java)
-        cityService = Api.getRetrofit(CITY_URL)!!.create(ApiService::class.java)
+
+        cityService = Api.getRetrofit(CITY_URL)!!.create(BaseService::class.java)
         providers = RxCache.Builder()
             .useExpiredDataIfLoaderNotAvailable(true)
             .persistence(App.getApplication().cacheDir, GsonSpeaker())
             .using(CacheProviders::class.java)
     }
 
-    @SuppressLint("CheckResult")
     fun getNowWeather(location: String, listener: OnRequest) {
         val observer = IObserver(mContext, listener)
-        //addSubcription(providers.getWeatherNow(weatherService.getNowWeather(location), DynamicKey(location), EvictProvider(Constants.NET)),)
+        //addSubcription(weatherService.getNowWeather(location), observer)
+        addSubcription(providers.getWeather(weatherService.getNowWeather(location), DynamicKey(location), EvictProvider(Constants.NET)), observer)
     }
 
     fun get(url: String, listener: OnRequest) {
         val observer = IObserver(mContext, listener)
-        addSubcription(weatherService.get(url), observer)
+        addSubcription(service.get(url), observer)
     }
 
 
     fun get(url: String, map: Map<String, String>, listener: OnRequest) {
         val observer = IObserver(mContext, listener)
-        addSubcription(weatherService.get(url, map), observer)
+        addSubcription(service.get(url, map), observer)
     }
 
 
     fun getCity(url: String, map: Map<String, String>, listener: OnRequest) {
         val observer = IObserver(mContext, listener)
-        addSubcription(cityService.get(url, map), observer)
+        //addSubcription(cityService.get(url, map), observer)
+
+        addSubcription(providers.getCity(cityService.get(url, map), DynamicKey(map), EvictProvider(Constants.NET)), observer)
+
     }
-
-
 
 
 }

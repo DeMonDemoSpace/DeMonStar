@@ -16,5 +16,9 @@ import java.util.concurrent.TimeUnit
 interface CacheProviders {
 
     @LifeCache(duration = 1, timeUnit = TimeUnit.MINUTES) //缓存有效期24小时
-    fun getWeatherNow(observable: Observable<String>, key: DynamicKey, evictProvider: EvictProvider): Observable<String>
+    fun getWeather(observable: Observable<String>, key: DynamicKey, evictProvider: EvictProvider): Observable<String>
+
+
+    @LifeCache(duration = 1, timeUnit = TimeUnit.MINUTES) //缓存有效期24小时
+    fun getCity(observable: Observable<String>, key: DynamicKey, evictProvider: EvictProvider): Observable<String>
 }

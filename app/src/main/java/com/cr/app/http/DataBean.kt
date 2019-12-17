@@ -30,12 +30,12 @@ class DataBean {
 
 
     fun <T> getDataBean(key: String, cls: Class<T>): T {
-        return gson.fromJson<T>(JSONObject(gson.toJson(heWeather6[0])).getJSONObject(key).toString(), cls)
+        return gson.fromJson<T>(getKeyData(key), cls)
     }
 
     fun <T> getDataList(key: String, type: Type): T {
 
-        return gson.fromJson(JSONObject(gson.toJson(heWeather6[0])).getJSONArray(key).toString(), type)
+        return gson.fromJson(getKeyData(key), type)
     }
 
 

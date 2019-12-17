@@ -6,6 +6,7 @@ import com.cr.app.data.Constants
 import com.demon.baseframe.model.BaseObserver
 import com.demon.baseui.dialog.ImageProgressDialog
 import com.demon.baseutil.ToastUtil
+import com.google.gson.Gson
 
 
 /**
@@ -14,22 +15,26 @@ import com.demon.baseutil.ToastUtil
  * @email 757454343@qq.com
  * @description
  */
-class IObserver : BaseObserver<DataBean> {
+class IObserver : BaseObserver<String> {
 
     private var listener: OnRequest
     private var mContext: Context
+    private var gson: Gson
 
     constructor(context: Context, listener: OnRequest) : super(context) {
         this.listener = listener
         mContext = context
+        gson = Gson()
     }
 
     constructor(context: Context, listener: OnRequest, isShow: Boolean) : super(context, isShow) {
         this.listener = listener
         mContext = context
+        gson = Gson()
     }
 
-    override fun onNextResult(t: DataBean) {
+    override fun onNextResult(str: String) {
+        val t = gson.fromJson<DataBean>(str, DataBean::class.java)
         if (t.getStatus() != Constants.OK) {
             ToastUtil.showErrorToast(mContext, t.getStatus())
             listener.onFail(t.getStatus())
