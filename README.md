@@ -54,8 +54,7 @@ android {
 
 ### Bugs or Questions
 
-1. issues
-2. email:757454343@qq.com
+[issues](https://github.com/DeMonDemoSpace/DeMonStar/issues)
 
 ### MIT LICENSE
 
