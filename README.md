@@ -1,6 +1,4 @@
-[![](https://jitpack.io/v/DeMonLiu623/DeMonStar.svg)](https://jitpack.io/#DeMonLiu623/DeMonStar)
-
-# DeMonStar
+## DeMonStar
 
 一个集网络请求封装，列表优化，自定义View，通用工具类一体的简化开发成本的Android基础架构。    
 
