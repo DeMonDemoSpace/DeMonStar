@@ -8,36 +8,6 @@
 3. minSdkVersion = 16
 4. AndroidStudio 3.x
 
-#### Butterknife
-
-如果是使用java开发需要使用butterknife，则需要在你的app/build.gradle中添加：  
-
-```
-android {
-    ...
-    compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
-    }
-    }
-    
-    dependencies {
-        implementation "com.jakewharton:butterknife:10.2.0"
-        annotationProcessor "com.jakewharton:butterknife-compiler:10.2.0"
-    }
-```
-
-#### Permission
-
-最少需要添加如下4个权限：  
-```
- <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-```
-
-
 ### Introduction
 
 |Library|说明|所含框架|  
